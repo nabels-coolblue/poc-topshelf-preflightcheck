@@ -35,8 +35,3 @@ Returning exit code 1.
 Type the following command on your Powershell terminal to find the exit code of the most recently exited process:
 echo $LastExitCode
 ```
-
-# Verifying the exit code on a Powershell prompt 
-
-PS Microsoft.PowerShell.Core\FileSystem::> echo $LastExitCode
-1
