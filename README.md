@@ -22,7 +22,7 @@ The pre-flight mode will cause the process to return with a 0 exit code (success
 
 # Sample output
 
-```PS Microsoft.PowerShell.Core\FileSystem::> .\poc-windowsservice-preflightcheck.exe --preflight
+```PS Microsoft.PowerShell.Core\FileSystem::Debug> .\poc-windowsservice-preflightcheck.exe --preflight
 Configuration Result:
 [Success] Name MyTopShelfService
 [Success] DisplayName My TopShelf service
@@ -34,4 +34,7 @@ Pre-flight check failed.
 Returning exit code 1.
 Type the following command on your Powershell terminal to find the exit code of the most recently exited process:
 echo $LastExitCode
+
+PS Microsoft.PowerShell.Core\FileSystem::Debug> echo $LastExitCode
+1
 ```
