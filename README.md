@@ -33,7 +33,7 @@ Running a preflight check...
 Pre-flight check failed.
 Returning exit code 1.
 Type the following command on your Powershell terminal to find the exit code of the most recently exited process:
-echo $LastExitCode
+echo $LastExitCode```
 
 # Verifying the exit code on a Powershell prompt 
 
