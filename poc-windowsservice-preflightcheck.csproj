@@ -48,6 +48,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationStartup.cs" />
+    <Compile Include="CommandLineOptions.cs" />
     <Compile Include="MyService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
