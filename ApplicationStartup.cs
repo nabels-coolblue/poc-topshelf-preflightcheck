@@ -10,28 +10,27 @@ namespace poc_windowsservice_preflightcheck
     {
         public static StartupMode GetStartupMode()
         {
+            var options = new CommandLineOptions();
+
             try
             {
-                var options = new CommandLineOptions();
                 var isValid = CommandLine.Parser.Default.ParseArguments(Environment.GetCommandLineArgs(), options);
-
-                if (isValid && options.Preflight)
-                    return StartupMode.RunPreflightCheck;
+                if (isValid && options.PreflightCheck)
+                    return StartupMode.Preflight;
             }
             catch(Exception e)
             {
-                Console.WriteLine("Encountered an exception trying to determine StartupMode [RunNormally, RunPreflightCheck].");
-                Console.WriteLine(e.ToString());
+                Console.Error.WriteLine(e.ToString());
+                Console.Error.WriteLine(options.GetUsage());
             }
 
-            return StartupMode.RunNormally;
+            return StartupMode.Normal;
         }
-
     }
 
     public enum StartupMode
     {
-        RunNormally,
-        RunPreflightCheck,
+        Normal,
+        Preflight,
     }
 }

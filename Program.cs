@@ -16,7 +16,7 @@ namespace poc_windowsservice_preflightcheck
             {
                 x.Service<MyService>(s =>
                 {
-                    if (ApplicationStartup.GetStartupMode() == StartupMode.RunPreflightCheck)
+                    if (ApplicationStartup.GetStartupMode() == StartupMode.Preflight)
                         s.WhenStarted(service => service.PreFlightCheck());
                     else
                         s.WhenStarted(service => service.Start());
