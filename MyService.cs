@@ -31,7 +31,7 @@ namespace poc_windowsservice_preflightcheck
             }
 
             Console.WriteLine("To check the exit code returned by this application, run the following command.");
-            Console.WriteLine("On Windows: echo %errorlevel%");
+            Console.WriteLine("On Windows: cmd /c echo %errorlevel%");
             Console.WriteLine("On OS X: echo $?");
 
             Environment.Exit(canBeZeroOrOne);
