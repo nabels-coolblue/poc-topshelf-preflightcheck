@@ -32,7 +32,7 @@ namespace poc_windowsservice_preflightcheck
                 x.SetServiceName("MyTopShelfService");
 
                 // TopShelf requires the --preflight command-line switch to be whitelisted
-                x.AddCommandLineSwitch("preflight", preflight => Console.WriteLine("Application started in pre-flight mode. Running pre-flight check."));
+                x.AddCommandLineSwitch("preflight", ignore => ignore.ToString());
             });
         }
     }
