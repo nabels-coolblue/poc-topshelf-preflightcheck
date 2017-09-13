@@ -26,8 +26,8 @@ namespace poc_windowsservice_preflightcheck
             }
             else
             {
-                Console.WriteLine("Pre-flight check failed.");
-                Console.WriteLine("Returning exit code 1.");
+                Console.Error.WriteLine("Pre-flight check failed.");
+                Console.Error.WriteLine("Returning exit code 1.");
             }
 
             Console.WriteLine("Type the following command on your Powershell terminal to find the exit code of the most recently exited process:");
