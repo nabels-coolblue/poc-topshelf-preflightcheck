@@ -30,8 +30,9 @@ namespace poc_windowsservice_preflightcheck
                 Console.Error.WriteLine("Returning exit code 1.");
             }
 
-            Console.WriteLine("Type the following command on your Powershell terminal to find the exit code of the most recently exited process:");
-            Console.WriteLine("echo $LastExitCode");
+            Console.WriteLine("To check the exit code returned by this application, run the following command.");
+            Console.WriteLine("On Windows: echo %errorlevel%");
+            Console.WriteLine("On OS X: echo $?");
 
             Environment.Exit(canBeZeroOrOne);
         }
