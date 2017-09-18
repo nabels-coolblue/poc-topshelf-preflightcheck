@@ -71,3 +71,15 @@ Topshelf v4.0.0.0, .NET Framework v4.0.30319.42000
 Pre-flight mode wasn't specified. Running normally.
 The MyTopShelfService service is now running, press Control+C to exit.
 ```
+
+## Checking for exit code
+The various platforms have different ways of inspecting the exit code of an application:
+
+### Windows command prompt
+`echo %errorlevel%`
+
+### PowerShell
+Either `$lastExitCode` or `$?`, see [here](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9780596528492/ch01s11.html) for more details.
+
+### Linux and OS/X
+`echo $?`
