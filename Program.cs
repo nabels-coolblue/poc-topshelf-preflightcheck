@@ -10,15 +10,17 @@ namespace poc_windowsservice_preflightcheck
 {
     class Program
     {
-        static bool _preflight = false;
-
         public static void Main(string[] args)
         {
             HostFactory.Run(x =>
             {
                 x.Service<MyService>(s =>
                 {
-                    s.WhenStarted(service => service.Start(_preflight));
+                    if (ApplicationStartup.GetStartupMode() == StartupMode.Preflight)
+                        s.WhenStarted(service => service.PreFlightCheck());
+                    else
+                        s.WhenStarted(service => service.Start());
+                    
                     s.WhenStopped(service => service.Stop());
                     s.ConstructUsing(() => new MyService());
                 });
@@ -29,7 +31,8 @@ namespace poc_windowsservice_preflightcheck
                 x.SetDisplayName("My TopShelf service");
                 x.SetServiceName("MyTopShelfService");
 
-                x.AddCommandLineSwitch("preflight", preflight => _preflight = preflight);
+                // TopShelf requires the --preflight command-line switch to be whitelisted
+                x.AddCommandLineSwitch("preflight", ignore => ignore.ToString());
             });
         }
     }
